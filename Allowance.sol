@@ -18,7 +18,7 @@ contract Allowance is Ownable{
   }
 
   modifier ownerOrAllowed(uint _amount) {
-    require(isOwner(), allowance[msg.sender] >= _amount, "You are not allowed");
+    require(isOwner(), allowance[msg.sender] >= _amount, "You are not allowed to call this function");
     _;
   }
 
