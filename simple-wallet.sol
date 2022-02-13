@@ -7,7 +7,7 @@ contract SimpleWallet is Allowance {
   event MoneyReceived(address indexed from, uint _amount);
 
   function withdrawMoney(address payable _to, uint _amount ) public ownerOrAllowed(_amount) {
-    require(_amount <= address(this).balance, "there are not enought fund stored in this smart contract");
+    require(_amount <= address(this).balance, "there are not enough fund stored in this smart contract");
     if(!isOwner()) {
       reduceAllowance(msg.sender, _amount);
     }
