@@ -23,7 +23,12 @@ contract Allowance is Ownable{
   }
 
   function reduceAllowance(address _who, uint _amount) internal {
-    emit AllowanceChanged(_who, msg.sender, allowance[_who], allowance[_who].sub(_amount));
+    emit AllowanceChanged(_who, msg.sender, allowance[_who].sub(_amount));
     allowance[_who] = allowance[_who].sub(_amount);
+  }
+
+  function addMoreAllowance(address _who, uint _amount) public {
+    emit AllowanceChanged(_who, msg.sender, allowance[_who] + amount));
+    allowance[_who] += _amount;
   }
 
